@@ -1,0 +1,21 @@
+<div class="container mt-2">
+  <app-form></app-form>
+  <div class="row mt-3">
+    <div class="col-xs">
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/']" routerLinkActive="text-danger active" [routerLinkActiveOptions]="{ exact: true }">All</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/pending']" routerLinkActive="text-danger active">Pending</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/completed']" routerLinkActive="text-danger active">Completed</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<div class="container mt-3">
+  <router-outlet></router-outlet>
+</div>

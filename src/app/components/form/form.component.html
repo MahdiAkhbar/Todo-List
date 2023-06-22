@@ -1,0 +1,13 @@
+<div class="row mt-3">
+    <h2>TO DO LIST</h2>
+    <div class="col-md-12 input-group mt-2">
+      <div class="col-md-9">
+        <input #inp type="text" class="form-control" placeholder="Type here to add to list">
+      </div>
+      <div class="col-md-3">
+        <div class="input-group-append">
+          <button class="btn btn-primary ms-3 px-5" style="width: 90%;" (click)="addTask(inp.value); inp.value = ''">ADD</button>
+        </div>
+      </div>
+    </div>
+  </div>
