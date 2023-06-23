@@ -1,8 +1,8 @@
 <li class="list-group-item card2" [ngClass]="changeClass(taskInput)">
 
   <div class="form-check d-inline">
-    <input type="checkbox" class="form-check-input" style="transform: scale(1.5)" [checked]="taskInput.isComplete" (change)="onChange(taskInput)" id="complete">
-    <label for="complete" class="form-check-label lead">{{taskInput.body}} <span class="ms-5 ps-5">{{ taskInput.date }}</span></label>
+    <input type="checkbox" class="form-check-input" style="transform: scale(1.5)" [checked]="taskInput.isComplete" (change)="onChange(taskInput)">
+    <label class="form-check-label lead">{{taskInput.body}} <span class="ms-5 ps-5">{{ taskInput.date }}</span></label>
   </div>
   <div class="float-end">
       <button class="btn btn-danger btn-sm mx-3" (click)="deleteTask(taskInput)">x</button>

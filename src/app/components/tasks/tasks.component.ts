@@ -11,7 +11,6 @@ export class TasksComponent {
 
   constructor(private todoService: TodoService) {}
 
-  completed: boolean = false;
   @Input() taskInput!: ITask;
 
   deleteTask(input: ITask) {
@@ -19,7 +18,6 @@ export class TasksComponent {
   }
 
   onChange(taskInput: ITask) {
-    this.completed = !this.completed;    
     this.todoService.onChange(taskInput);
     console.log(taskInput);
     

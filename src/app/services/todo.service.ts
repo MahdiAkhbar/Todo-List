@@ -8,6 +8,7 @@ export class TodoService {
 
   constructor() { }
 
+  id: number = 1;
   date: string = ((new Date()).toString()).slice(0, 24);
   todoList: ITask[] = [
     {
@@ -47,8 +48,6 @@ export class TodoService {
       date: this.date
     },
   ];
-  id: number = 1;
-  completed: boolean = false;
 
   addTask(val: string) {
     let date2 = ((new Date()).toString()).slice(0, 24);
