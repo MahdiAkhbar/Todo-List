@@ -1,9 +1,9 @@
-<div class="card shadow">
-    <h5 class="card-header">My UnCompleted Todo List</h5>
+<div class="card shadow borderTop">
+    <h5 class="card-header p-3">My UnCompleted Todo List</h5>
     <div class="card-body">
         <ul class="list-group mb-2">
             <ng-container *ngFor="let todo of allList">
-                <li  *ngIf="todo.isComplete === false" class="list-group mb-2">
+                <li  *ngIf="!todo.isComplete" class="list-group mb-2">
                     <app-tasks [taskInput]="todo"></app-tasks>
                 </li>
             </ng-container>
