@@ -2,17 +2,19 @@
 
   <div class="form-check d-inline">
     <input type="checkbox" class="form-check-input" [checked]="taskInput.isComplete" (change)="onChange(taskInput)">
-    <a data-bs-toggle="collapse" href="#complete_{{ taskInput.id }}" role="button" aria-expanded="false">
+    <a data-bs-toggle="collapse" href="#complete_{{ taskInput.id }}" role="button" aria-expanded="false" (click)="onClick()">
       <label class="form-check-label lead">{{taskInput.body}}</label>
+      <i class="bi bi-caret-right-fill" [ngClass]="onCollapse()"></i>
     </a>
+    </div>
+  <div class="float-end">
+      <button class="btn btn-outline-danger btn-sm" (click)="deleteTask(taskInput)"><i class="bi bi-trash" id="trash-size"></i></button>
   </div>
+  
   <div class="collapse" [id]="'complete_' + taskInput.id">
     <div class="card-body">
       {{ taskInput.date }}
     </div>
-  </div>
-  <div class="float-end">
-      <button class="btn btn-danger btn-sm mx-3" (click)="deleteTask(taskInput)">x</button>
   </div>
 
 </li>
