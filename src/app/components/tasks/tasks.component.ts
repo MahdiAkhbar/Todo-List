@@ -11,6 +11,9 @@ export class TasksComponent {
 
   constructor(private todoService: TodoService) {}
 
+  triangleFill: boolean = true;
+  triangleClass: string = 'bi bi-caret-right-fill';
+
   @Input() taskInput!: ITask;
 
   deleteTask(input: ITask) {
@@ -18,16 +21,23 @@ export class TasksComponent {
   }
 
   onChange(taskInput: ITask) {
-    this.todoService.onChange(taskInput);
-    console.log(taskInput);
-    
+    this.todoService.onChange(taskInput);    
   }
 
   changeClass(input: ITask) {
     let index: number = this.todoService.todoList.indexOf(input);
-    if(this.todoService.todoList[index].isComplete) {
+    if (this.todoService.todoList[index].isComplete) {
       return {'list-group-item-success':this.todoService.todoList[index].isComplete, 'border-primary': this.todoService.todoList[index].isComplete}
     }
     return ''
+  }
+
+  onClick() {
+    this.triangleFill = !this.triangleFill;
+    
+  }
+  onCollapse() {
+    return {'bi bi-caret-right-fill': this.triangleFill ,'bi bi-caret-down': !this.triangleFill};
+
   }
 }
