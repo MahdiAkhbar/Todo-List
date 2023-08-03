@@ -8,8 +8,8 @@
     <div class="col-xs">
       <div class="col-md">
         <button class="btn btn-warning ms-1 mb-1" (click)="deleteCompleted()">Delete Completed Tasks</button>
-        <button class="btn btn-danger ms-1 mb-1" (click)="deleteAll()">Delete All</button>
-        <button class="btn btn-info ms-1 mb-1" (click)="checkAll()">Check All</button>
+        <button class="btn btn-danger ms-1 mb-1" (click)="deleteAll()" [disabled]="!deleteAllStatus">Delete All</button>
+        <button class="btn btn-info ms-1 mb-1" (click)="checkAll()" [disabled]="!deleteAllStatus">{{ checkAllText }}</button>
       </div>
       <div class="col-md">
           <ul class="nav nav-tabs">

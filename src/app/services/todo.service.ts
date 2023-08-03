@@ -9,6 +9,7 @@ export class TodoService {
   constructor() { }
 
   checkAllFlag: boolean = false;
+  isAllChecked: boolean = false;
   id: number = 1;
   date: string = ((new Date()).toString()).slice(0, 24);
   todoList: ITask[] = [
@@ -105,7 +106,7 @@ export class TodoService {
     this.checkAllFlag = false;
     for (let i = 0; i < todo.length; i++)
       if (!todo[i].isComplete){
-        this.checkAllFlag = true;
+        this.checkAllFlag = true;        
         break;
       }
     if (this.checkAllFlag)
@@ -117,5 +118,17 @@ export class TodoService {
       todo.forEach((item) => {
         item.isComplete = false;
       })
+  }
+
+  isAllchecked() {
+    const todo = this.todoList;
+    for (let i = 0; i < todo.length; i++)
+      if (!todo[i].isComplete){
+        this.isAllChecked = false;
+        break;
+      }
+      else
+        this.isAllChecked = true;
+      return this.isAllChecked;
   }
 }

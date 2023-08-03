@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, DoCheck, EventEmitter, Output } from '@angular/core';
 import { TodoService } from './services/todo.service';
 
 @Component({
@@ -6,9 +6,21 @@ import { TodoService } from './services/todo.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements DoCheck {
 
   constructor(private todoservice: TodoService) {}
+
+  ngDoCheck(): void {
+    this.deleteAllStatus = this.todoservice.todoList.length > 0 ? true : false;
+    this.todoservice.isAllchecked();
+    this.isAllChecked = this.todoservice.isAllChecked;
+    this.changeCheckAllText();
+  }
+
+  isAllChecked: boolean = false;
+  checkAllText: string = 'Check All';
+  todoList = this.todoservice.todoList;
+  deleteAllStatus: boolean = true;
 
   deleteCompleted() {
     this.todoservice.deleteCompleted();
@@ -20,6 +32,14 @@ export class AppComponent {
 
   checkAll() {
     this.todoservice.checkAll();
+  }
+
+  changeCheckAllText() {
+    if (this.todoservice.isAllChecked) {
+      this.checkAllText = 'Uncheck All';
+    } else {
+      this.checkAllText = 'Check All';
+    }
   }
 
 }
